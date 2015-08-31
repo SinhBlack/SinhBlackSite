@@ -1,0 +1,17 @@
+<div>
+
+    <div class="sb-nav-toggle"  ng-click="toggleMenu()" ng-class="{'on' : !tog}">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+    <nav  class="sb-nav" ng-class="{'on' : !tog}">
+        <ul>
+            <li ui-sref="home"><a ng-click="toggleMenu()">HOME</a></li>
+            <li ng-hide="isAuth()" ui-sref="signin"  ng-click="toggleMenu()"><a>SIGN IN</a></li>
+            <li ng-hide="isAuth()" ui-sref="signup" ng-click="toggleMenu()"><a>SIGN UP</a></li>
+            <li ng-show="isAuth()"  ui-sref="profile" ng-click="toggleMenu()"><a>Profile</a></li>
+            <li ng-show="isAuth()"  ng-click="logOut()"><a>LOG OUT</a></li>
+        </ul>
+    </nav>
+</div>

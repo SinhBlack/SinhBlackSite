@@ -1,0 +1,10 @@
+<h1>this is sign IN page</h1>
+<p>{{error}}</p>
+<form ng-submit="signin()">
+    <p>{{err}}</p>
+    <input type="email" name="email" placeholder="Email" ng-model="userData.email"><br>
+    <input type="password" name="password" placeholder="Password" ng-model="userData.password"><br>
+    <input type="checkbox" ng-model="r" ng-click="rememberMe()">Remember me
+    <button type="submit">Submit</button><br>
+    <a target="_self" href="/auth/google">Google+</a>
+</form>

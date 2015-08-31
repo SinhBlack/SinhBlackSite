@@ -1,0 +1,121 @@
+/* line 15, ../sass/_navigation.scss */
+.sb-nav {
+  display: none;
+  position: absolute;
+  background: #000000;
+  opacity: 0.9;
+  height: 100%;
+  width: 100%;
+}
+/* line 17, ../sass/_navigation.scss */
+.sb-nav.on {
+  display: block;
+}
+@media (min-width: 700px) {
+  /* line 15, ../sass/_navigation.scss */
+  .sb-nav {
+    height: auto;
+    display: block;
+    position: static;
+  }
+}
+
+/* line 32, ../sass/_navigation.scss */
+.sb-nav ul {
+  font-size: 1em;
+  list-style: none;
+  margin-top: 3.5em;
+  padding: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+@media (min-width: 700px) {
+  /* line 32, ../sass/_navigation.scss */
+  .sb-nav ul {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin-top: 0;
+  }
+}
+
+/* line 45, ../sass/_navigation.scss */
+.sb-nav ul li {
+  padding: 1em 0;
+  text-align: center;
+  cursor: pointer;
+}
+/* line 49, ../sass/_navigation.scss */
+.sb-nav ul li:hover {
+  background: red;
+}
+@media (min-width: 700px) {
+  /* line 45, ../sass/_navigation.scss */
+  .sb-nav ul li {
+    padding: 1.5em 2em;
+  }
+}
+
+/* line 57, ../sass/_navigation.scss */
+.sb-nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* line 63, ../sass/_navigation.scss */
+.sb-nav-toggle {
+  position: absolute;
+  width: 2.5em;
+  height: 3em;
+  z-index: 200;
+  top: 0.5em;
+  right: 0.5em;
+  cursor: pointer;
+}
+@media (min-width: 700px) {
+  /* line 63, ../sass/_navigation.scss */
+  .sb-nav-toggle {
+    display: none;
+  }
+}
+/* line 75, ../sass/_navigation.scss */
+.sb-nav-toggle.on .one {
+  -moz-transform: rotate(45deg) translate(0.5em, 0.5em);
+  -ms-transform: rotate(45deg) translate(0.5em, 0.5em);
+  -webkit-transform: rotate(45deg) translate(0.5em, 0.5em);
+  transform: rotate(45deg) translate(0.5em, 0.5em);
+}
+/* line 79, ../sass/_navigation.scss */
+.sb-nav-toggle.on .two {
+  opacity: 0;
+}
+/* line 83, ../sass/_navigation.scss */
+.sb-nav-toggle.on .three {
+  -moz-transform: rotate(-45deg) translate(0.5em, -0.5em);
+  -ms-transform: rotate(-45deg) translate(0.5em, -0.5em);
+  -webkit-transform: rotate(-45deg) translate(0.5em, -0.5em);
+  transform: rotate(-45deg) translate(0.5em, -0.5em);
+}
+
+/* line 89, ../sass/_navigation.scss */
+.one,
+.two,
+.three {
+  width: 100%;
+  height: 0.5em;
+  background: black;
+  opacity: 0.5;
+  margin: 0.25em auto;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+/* line 3, ../sass/main.scss */
+body, html, * {
+  margin: 0;
+  padding: 0;
+}

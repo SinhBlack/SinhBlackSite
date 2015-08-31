@@ -1,0 +1,98 @@
+@import "compass/css3";
+
+@mixin breakpoint($width) {
+    @if $width == 700 {
+        @media (min-width: 700px){
+            @content;
+        }
+    }
+}
+
+$navBgColor: #000000;
+$navBgOpacity: 0.9;
+$fontColor: #ffffff;
+
+.sb-nav{
+    display: none;
+    &.on{
+        display: block;
+    }
+    position: absolute;
+    background: $navBgColor;
+    opacity: $navBgOpacity;
+    height: 100%;
+    width: 100%;
+    @include breakpoint(700){
+        height: auto;
+        display: block;
+        position: static;
+    }
+}
+
+.sb-nav ul{
+    font-size: 1em;
+    list-style: none;
+    margin-top: 3.5em;
+    padding: 0;
+    @include display-flex;
+    @include flex-direction(column);
+    @include breakpoint(700){
+        @include flex-direction(row);
+        margin-top: 0;
+    }
+}
+
+.sb-nav ul li{
+    padding: 1em 0;
+    text-align: center;
+    cursor: pointer;
+    &:hover{
+        background: red;
+    }
+    @include breakpoint(700){
+        padding: 1.5em 2em;
+    }
+}
+
+.sb-nav ul li a{
+    color: $fontColor;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sb-nav-toggle{
+    position: absolute;
+    width: 2.5em;
+    height: 3em;
+    z-index: 200;
+    top: 0.5em;
+    right: 0.5em;
+    cursor: pointer;
+    @include breakpoint(700){
+        display: none;
+    }
+    &.on {
+        .one {
+            @include transform(rotate(45deg) translate(0.5em, 0.5em));
+        }
+
+        .two {
+            opacity: 0;
+        }
+
+        .three {
+            @include transform(rotate(-45deg) translate(0.5em, -0.5em));
+        }
+    }
+}
+
+.one,
+.two,
+.three{
+    width: 100%;
+    height: 0.5em;
+    background: black;
+    opacity: 0.5;
+    margin: 0.25em auto;
+    @include transition-duration(0.5s);
+}
