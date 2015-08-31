@@ -1,4 +1,5 @@
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var FacebookStrategy = require('passport-facebook');
 var User = require('../models/users');
 var configAuth = require('./auth.js');
 
@@ -40,6 +41,34 @@ module.exports = function(passport){
             });
         });
     }
+    ));
+
+    passport.use(new FacebookStrategy({
+            clientID: configAuth.facebook.clientID,
+            clientSecret: configAuth.facebook.clientSecret,
+            callbackURL: configAuth.facebook.callbackURL
+        },
+        function(accessToken, refreshToken, profile, done) {
+            console.log(profile);
+            process.nextTick(function(){
+                User.findOne({"facebook.id" : profile.id}, function(err, user){
+                    if (err) return done(err);
+                    if (user) return done(null, user);
+                    else{
+                        var newUser = new User();
+                        newUser.facebook.id = profile.id;
+                        newUser.facebook.token = accessToken;
+                        newUser.facebook.name = profile.displayName;
+                        //newUser.facebook.email = profile.emails[0].value; friking facebokk dont give us @@.
+
+                        newUser.save(function(err){
+                            if(err) return err;
+                            return done(null, newUser);
+                        });
+                    }
+                });
+            });
+        }
     ));
 
 };
