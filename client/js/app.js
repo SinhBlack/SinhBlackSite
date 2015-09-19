@@ -10,7 +10,8 @@ app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider',
     $stateProvider
         .state('home', {
             url: "/",
-            templateUrl: "partials/home.html"
+            templateUrl: "partials/home.html",
+            controller: "HomeCtrl"
         })
         .state('signup', {
             url: "/signup",
@@ -26,6 +27,16 @@ app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider',
             url: "/profile",
             templateUrl: "views/profile.html",
             controller: "ProfileCtrl"
+        })
+        .state('forgot', {
+            url: "/forgot",
+            templateUrl: "views/forgot.html",
+            controller: "ForgotCtrl"
+        })
+        .state('reset', {
+            url: "/reset/:token",
+            templateUrl: "views/reset.html",
+            controller: "ResetCtrl"
         });
 
         $httpProvider.interceptors.push(['$q', '$location',

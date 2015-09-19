@@ -21,7 +21,6 @@ module.exports = function(passport){
         callbackURL : configAuth.google.callbackURL
     },
     function(token, refreshToken, profile, done){
-
         process.nextTick(function(){
             User.findOne({'google.id' : profile.id}, function(err , user){
                 if (err) return done(err);
@@ -46,7 +45,8 @@ module.exports = function(passport){
     passport.use(new FacebookStrategy({
             clientID: configAuth.facebook.clientID,
             clientSecret: configAuth.facebook.clientSecret,
-            callbackURL: configAuth.facebook.callbackURL
+            callbackURL: configAuth.facebook.callbackURL,
+            profileFields: ['email', 'displayName']
         },
         function(accessToken, refreshToken, profile, done) {
             console.log(profile);
@@ -59,7 +59,7 @@ module.exports = function(passport){
                         newUser.facebook.id = profile.id;
                         newUser.facebook.token = accessToken;
                         newUser.facebook.name = profile.displayName;
-                        //newUser.facebook.email = profile.emails[0].value; friking facebokk dont give us @@.
+                        newUser.facebook.email = profile.emails[0].value;
 
                         newUser.save(function(err){
                             if(err) return err;

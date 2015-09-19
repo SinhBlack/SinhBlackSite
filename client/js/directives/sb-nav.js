@@ -5,10 +5,14 @@ angular.module('app')
             replace: true,
             templateUrl: 'js/directives/sb-nav.html',
             controller: function(userService, $scope){
-                $scope.tog = true;
+                $scope.isOn = false;
 
                 $scope.toggleMenu = function(){
-                    $scope.tog = !$scope.tog;
+                    $scope.isOn = !$scope.isOn;
+                };
+
+                $scope.turnOffMenu = function(){
+                    $scope.isOn = false;
                 };
 
                 $scope.isAuth = function(){

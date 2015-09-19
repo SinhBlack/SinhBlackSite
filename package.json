@@ -10,6 +10,8 @@
   "author": "SinhBlack",
   "license": "ISC",
   "dependencies": {
+    "async": "^1.4.2",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",
     "ejs": "^2.3.3",
     "express": "^4.13.3",
@@ -17,10 +19,12 @@
     "jsonwebtoken": "^5.0.5",
     "mongoose": "^4.1.3",
     "morgan": "^1.6.1",
+    "nodemailer": "^1.4.0",
     "nodemon": "^1.4.1",
     "passport": "^0.3.0",
     "passport-facebook": "^2.0.0",
     "passport-google": "^0.3.0",
-    "passport-google-oauth": "^0.2.0"
+    "passport-google-oauth": "^0.2.0",
+    "xoauth2": "^1.1.0"
   }
 }

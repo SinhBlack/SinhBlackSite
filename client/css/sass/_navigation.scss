@@ -1,8 +1,8 @@
 @import "compass/css3";
 
 @mixin breakpoint($width) {
-    @if $width == 700 {
-        @media (min-width: 700px){
+    @if $width == 900 {
+        @media (min-width: 900px){
             @content;
         }
     }
@@ -22,7 +22,7 @@ $fontColor: #ffffff;
     opacity: $navBgOpacity;
     height: 100%;
     width: 100%;
-    @include breakpoint(700){
+    @include breakpoint(900){
         height: auto;
         display: block;
         position: static;
@@ -49,7 +49,7 @@ $fontColor: #ffffff;
     &:hover{
         background: red;
     }
-    @include breakpoint(700){
+    @include breakpoint(900){
         padding: 1.5em 2em;
     }
 }
@@ -68,7 +68,7 @@ $fontColor: #ffffff;
     top: 0.5em;
     right: 0.5em;
     cursor: pointer;
-    @include breakpoint(700){
+    @include breakpoint(900){
         display: none;
     }
     &.on {
