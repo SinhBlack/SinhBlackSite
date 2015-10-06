@@ -1,6 +1,41 @@
-<form ng-submit="signup()">
+<form ng-submit="signup()" name="signupForm">
     <p>{{err}}</p>
-    <input type="email" name="email" placeholder="Email" ng-model="userData.email"><br>
-    <input type="password" name="password" placeholder="Password" ng-model="userData.password"><br>
-    <button type="submit">Submit</button>
+
+    <p>
+        Email:<input type="email" name="email" placeholder="Email" ng-model="userData.email" required><br>
+                 <span style="color:red" ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+                 <span ng-show="signupForm.email.$error.required">Email is required.</span>
+                 <span ng-show="signupForm.email.$error.email">Invalid email address.</span>
+                 </span>
+
+    </p>
+
+    <p>
+        Password:<input type="password" name="password" placeholder="Password" ng-model="userData.password"
+                        ng-minlength="5" ng-maxlength="20" required><br>
+                <span style="color:red" ng-show="signupForm.password.$dirty && signupForm.password.$invalid">
+                <span ng-show="signupForm.password.$error.required">Password is required.</span>
+                <span ng-show="signupForm.password.$error.minlength">Less than 5</span>
+                <span ng-show="signupForm.password.$error.maxlength">Over 20</span>
+                </span>
+    </p>
+
+    <p>
+        Password:<input type="password" name="repassword" placeholder="Retype password" ng-model="userData.repassword"
+                        ng-minlength="5" ng-maxlength="20" required compare-to="userData.password"><br>
+                <span style="color:red" ng-show="signupForm.repassword.$dirty && signupForm.repassword.$invalid">
+                <span ng-show="signupForm.repassword.$error.required">Password is required.</span>
+                <span ng-show="signupForm.repassword.$error.minlength">Less than 5</span>
+                <span ng-show="signupForm.repassword.$error.maxlength">Over 20</span>
+                <span ng-show="signupForm.repassword.$error.passwordVerify">Not match</span>
+                </span>
+    </p>
+
+    <button type="submit" ng-disabled="signupForm.password.$error.minlength
+                                       || signupForm.password.$error.minlength
+                                       || signupForm.password.$error.required
+                                       || signupForm.email.$error.email
+                                       || signupForm.email.$error.required">Submit</button><br>
+
+
 </form>

@@ -7,7 +7,7 @@
     </div>
     <nav  class="sb-nav" ng-class="{'on' : isOn}">
         <ul>
-            <li ui-sref="home"><a ng-click="turnOffMenu()">HOME</a></li>
+            <li ui-sref="home" ng-click="turnOffMenu()"><a>HOME</a></li>
             <li ng-hide="isAuth()" ui-sref="signin"  ng-click="turnOffMenu()"><a>SIGN IN</a></li>
             <li ng-hide="isAuth()" ui-sref="signup" ng-click="turnOffMenu()"><a>SIGN UP</a></li>
             <li ng-show="isAuth()"  ui-sref="profile" ng-click="turnOffMenu()"><a>Profile</a></li>
