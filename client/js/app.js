@@ -6,7 +6,7 @@ app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider',
     function($httpProvider, $stateProvider, $urlRouterProvider){
 
     $urlRouterProvider.otherwise('/');
-
+    console.log("ssssssss");
     $stateProvider
         .state('home', {
             url: "/",
